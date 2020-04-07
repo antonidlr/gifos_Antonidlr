@@ -1,7 +1,6 @@
 // 1. Tomar el valor de entrada
 
 document.querySelector(".button_search").addEventListener('click',function(){
-
     const userInput = getUserInput();
     const val = true;
     searchGiphy( url, userInput, val );
@@ -23,6 +22,8 @@ function getUserInput () {
     return inputValue;
 };
 
+// Gifs sugeridos
+
 const myArray = ["gorilla", "Los Simpsons", "Unicorns and rainbows", "dog"];
 
 // 2. Hacer el trabajo con la API
@@ -32,7 +33,6 @@ const urlApi = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=`
 const urlTrending = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=25&rating=G`
 const url = urlApi;
 
-//const found = fetch('http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=' + apiKey)
 
 async function fetchAsync ( url, input) {
     //await response of fetch call
@@ -48,6 +48,11 @@ async function fetchAsync ( url, input) {
 // Busqueda principal 
 
 function searchGiphy( url , input, val) {
+    
+    setTimeout(function(){ 
+        if (val) {
+            moveScreen();
+        } }, 1500); 
     fetchAsync(url,input)
     .then(function(data) {
         const resp = data.data;
@@ -55,11 +60,6 @@ function searchGiphy( url , input, val) {
         //console.log(test);
         dataArray(resp);
     })
-    setTimeout(function(){ 
-        if (val) {
-            moveScreen();
-        } }, 1500);
-    
 }
 
 function searchGiphy2( url , input, num) {
@@ -72,7 +72,7 @@ function searchGiphy2( url , input, num) {
 }
 
 //4. Trending y demás
-
+//Muestra despues de una busqueda los Gif asociados
 const dataArray = (resp) => {
     const contDiv = document.querySelector(".js-container");
     contDiv.innerHTML = "";
@@ -86,14 +86,11 @@ const dataArray = (resp) => {
 //      const test = resp[0].images.fixed_height.url;
 //       console.log(test);
 
-
-
+// Muestra los 4 Gif sugeridos
 const trendingArray = (resp,num) => {
     
         const contDiv = document.querySelector(`.gif-${num+1}`);
         contDiv.innerHTML = "";
-
-        console.log(resp);
         
         const imageUrl = resp[0].images.downsized_large.url;
         contDiv.innerHTML = "<img src='"+ imageUrl +"' />";
@@ -107,32 +104,29 @@ const trendingArray = (resp,num) => {
         tag.innerHTML = "#"+newTag;
         
 };
+// Muestra los Gif despues de click Ver mas...
 
+const setValue = (val) => {
+
+}
 
 // Function to generate random number  
 /*
-function randomNumber(min, max) {  
-    min = Math.ceil(min); 
-    max = Math.floor(max); 
-    return Math.floor(Math.random() * (max - min + 1)) + min; 
-}  
-*/
-
 function randomNumber(min, max) {
     let step1 = max - min + 1;
     let step2 = Math.random()*step1;
     let result = Math.floor(step2) + 1;
     return result;
-}
+} */
 
 
-// Cargar Trending cuando se actulice el website
+// Cargar Trending cuando se actualice el website
 
 window.addEventListener('load', (event) => {
     for (let num=0; num<4; num++){
         const valArray = myArray[num];
-        console.log(valArray);
         searchGiphy2(url, valArray, num);
+        seeMore(num, valArray);
     }
     searchGiphy(urlTrending, "", false);
 
@@ -173,6 +167,27 @@ document.querySelector(".butt-1").addEventListener('click', function(){
     let bVal2 = document.querySelector(`.butt-1`).value;
     searchBar2(bVal2);
     searchGiphy(url, bVal2);
+    moveScreen();
+});
+
+document.querySelector(".butt-2").addEventListener('click', function(){
+    let bVal2 = document.querySelector(`.butt-2`).value;
+    searchBar2(bVal2);
+    searchGiphy(url, bVal2);
+    moveScreen();
+});
+
+document.querySelector(".butt-3").addEventListener('click', function(){
+    let bVal2 = document.querySelector(`.butt-3`).value;
+    searchBar2(bVal2);
+    searchGiphy(url, bVal2);
+    moveScreen();
 });
 
 
+document.querySelector(".butt-4").addEventListener('click', function(){
+    let bVal2 = document.querySelector(`.butt-4`).value;
+    searchBar2(bVal2);
+    searchGiphy(url, bVal2);
+    moveScreen();
+});
