@@ -3,25 +3,27 @@
 document.querySelector(".button_search").addEventListener('click',function(){
 
     const userInput = getUserInput();
-    console.log(userInput);
-    searchGiphy( url, userInput );
-
+    const val = true;
+    searchGiphy( url, userInput, val );
+    searchBar();
 });
 
 document.querySelector(".main_bar").addEventListener('keyup',function(e){
     //Cuando se use la tecla enter en la barra de busqueda...
     if(e.which === 13) {
         const userInput = getUserInput();
-        console.log(userInput);
-        searchGiphy( url, userInput );
+        const val = true;
+        searchGiphy( url, userInput, val );
+        searchBar();
     }
-
 });
 
 function getUserInput () {
     const inputValue = document.querySelector('.main_bar').value;
     return inputValue;
 };
+
+const myArray = ["gorilla", "Los Simpsons", "Unicorns and rainbows", "dog"];
 
 // 2. Hacer el trabajo con la API
 
@@ -45,30 +47,26 @@ async function fetchAsync ( url, input) {
 
 // Busqueda principal 
 
-function searchGiphy( url , input) {
+function searchGiphy( url , input, val) {
     fetchAsync(url,input)
     .then(function(data) {
         const resp = data.data;
-        
-        
-        const test = resp[0].images.fixed_height.url;
-        console.log(test);
-
+        //const test = resp[0].images.fixed_height.url;
+        //console.log(test);
         dataArray(resp);
-        
     })
+    setTimeout(function(){ 
+        if (val) {
+            moveScreen();
+        } }, 1500);
+    
 }
 
-function searchGiphy2( url , input) {
+function searchGiphy2( url , input, num) {
     fetchAsync(url,input)
     .then(function(data) {
         const resp = data.data;
-        
-        
-        const test = resp[0].images.fixed_height.url;
-        console.log(test);
-
-        trendingArray(resp);
+        trendingArray(resp, num);
         
     })
 }
@@ -78,7 +76,7 @@ function searchGiphy2( url , input) {
 const dataArray = (resp) => {
     const contDiv = document.querySelector(".js-container");
     contDiv.innerHTML = "";
-    console.log(resp);
+
     resp.forEach(function(data){
         const imageUrl = data.images.fixed_height.url;
         contDiv.innerHTML += "<img src='"+ imageUrl +"' />";
@@ -88,28 +86,93 @@ const dataArray = (resp) => {
 //      const test = resp[0].images.fixed_height.url;
 //       console.log(test);
 
-const trendingArray = (resp) => {
-    for (num=0; num<4; num++) {
+
+
+const trendingArray = (resp,num) => {
+    
         const contDiv = document.querySelector(`.gif-${num+1}`);
         contDiv.innerHTML = "";
-        const imageUrl = resp[num].images.downsized_large.url;
-        contDiv.innerHTML = "<img src='"+ imageUrl +"' />";
+
+        console.log(resp);
         
-        const str = resp[num].title;
+        const imageUrl = resp[0].images.downsized_large.url;
+        contDiv.innerHTML = "<img src='"+ imageUrl +"' />";
+
+        const str = resp[0].title;
         const newStr = str.split("GIF").shift();
+        console.log(newStr);
         const newTag = newStr.replace(/\s/g, '');
+
         const tag = document.querySelector(`.tag-${num+1}`);
         tag.innerHTML = "#"+newTag;
-    }
+        
 };
 
-window.addEventListener('load', (event) => {
 
-    searchGiphy2( urlTrending,"" )
-    console.log('The page has fully loaded');
+// Function to generate random number  
+/*
+function randomNumber(min, max) {  
+    min = Math.ceil(min); 
+    max = Math.floor(max); 
+    return Math.floor(Math.random() * (max - min + 1)) + min; 
+}  
+*/
+
+function randomNumber(min, max) {
+    let step1 = max - min + 1;
+    let step2 = Math.random()*step1;
+    let result = Math.floor(step2) + 1;
+    return result;
+}
+
+
+// Cargar Trending cuando se actulice el website
+
+window.addEventListener('load', (event) => {
+    for (let num=0; num<4; num++){
+        const valArray = myArray[num];
+        console.log(valArray);
+        searchGiphy2(url, valArray, num);
+    }
+    searchGiphy(urlTrending, "", false);
+
 });
 
+// Asignar input a barra de tendencias
 
+const searchBar = () => {
+    const input = getUserInput();
+    const inputText = document.querySelector(".bar-3");
+    inputText.innerHTML = "<p>" + input + " (resultados)</p>";
+}
 
+const searchBar2 = (input) => {
+    const inputText = document.querySelector(".bar-3");
+    inputText.innerHTML = "<p>" + input + " (resultados)</p>";
+}
+
+// Mover pantalla a sección de busqueda
+
+const moveScreen = () => {
+    document.getElementById('searchshow').scrollIntoView({
+        behavior:'smooth'
+    }); 
+}
+
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
+const seeMore = (num,val2) => {
+    let bValue = document.querySelector(`.butt-${num+1}`);
+    bValue.setAttribute("value",val2);
+    
+}
+
+document.querySelector(".butt-1").addEventListener('click', function(){
+    let bVal2 = document.querySelector(`.butt-1`).value;
+    searchBar2(bVal2);
+    searchGiphy(url, bVal2);
+});
 
 

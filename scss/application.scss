@@ -278,6 +278,9 @@ body {
         background: #FFFAFE;
         border: 1px solid #E6BBE2;
         box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+        p {
+            text-transform: capitalize;
+        }
     }
 
     .bar-3 {
@@ -419,5 +422,6 @@ body {
     box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
 
 }
+
 
 
