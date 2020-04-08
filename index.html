@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/scss/application.css">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body > </body>>
     <header id="main_header" class="clearfix">
         <div class="main_title">
             <p>¡Bienvenidos/as a Guifos.com! ------Donde los gifs están.//////Número de visitas: 12.765.803</p>
@@ -19,49 +19,46 @@
                 <a href="#" class="logo"> <img src="/assets/gifOF_logo.png" alt="guifos"> </a>
             </div>
             
-            <nav>
-                <button class="rectangle-1 line-dotted">Crear Guifos</button>
-                <button id="rect-2" class="rectangle-2">Elegir Tema</button>
-                <button id="rect-3" class="rectangle-3"><img src="/assets/dropdown.svg" alt="" height="6px" width="10px"> </button>
-                
-                <div class="dropdown-menu">
-                    <div class="drop-content">
-                        <button class="button-1 theme-1"><span>S</span>ailor Day</button>
-                        <button class="button-1 theme-2">Sailor Night</button>
-                    </div>
-                </div>
-                <a href="#" class="rectangle-4"><span>M</span>is Guifos</a>
-                
+            <nav class="navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><button class="rectangle-1 line-dotted">Crear Guifos</button></li>
+                    <li class="nav-item has-dropdown">
+                        <button id="rect-2" class="rectangle-2">Elegir Tema</button>
+                        <button id="rect-3" class="rectangle-3"><img src="/assets/dropdown.svg" alt="" height="6px" width="10px"> </button>
+                        <ul class="dropdown">
+                            <li class="nav-item"><button class="button-1 theme-1"><span>S</span>ailor Day</button></li>
+                            <li class="nav-item"><button class="button-1 theme-2">Sailor Night</button></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#" class="rectangle-4"><span>M</span>is Guifos</a></li>
+                </ul>
             </nav>
-            
-            
-            
-            
+
         </div>
     </header>
     
     <div class="wrapper">
         <div class="main_search">
-            
             <div class="search_title">
                 <p>Buscar</p>
             </div>
 
             <div class="search_bar">
-                <input type="text" class="main_bar" placeholder="Busca gifs, hashtags, temas, busca lo que quieras...">
-                <button class="button_search"> <img src="/assets/lupa_inactive.svg" alt="" width="16px" height="16px">   Buscar</button>
-
+                <ul class="search-nav">
+                    <li class="has-dropdown-search">
+                        <input type="text" class="main_bar" placeholder="Busca gifs, hashtags, temas, busca lo que quieras...">
+                        <ul class="dropdown-search ">
+                            <li class="nav-item-2"><button class="b-item">Resultado de búsqueda sugerido</button></li>
+                            <li class="nav-item-2"><button class="b-item">Un resultado similar de búsqueda</button></li>
+                            <li class="nav-item-2"><button class="b-item">Y otro más</button></li>
+                        </ul>
+                    </li>
+                    <li><button class="button_search"> <img src="/assets/lupa_inactive.svg" alt="" width="16px" height="16px">   Buscar</button></li>
+                </ul>
             </div>
             
         </div>
-        <div class="drop-index">
-            <div class="drop-items">
-                <button class="b-item">Resultado de búsqueda sugerido</button>
-                <button class="b-item">Un resultado similar de búsqueda</button>
-                <button class="b-item">Y otro más</button>
-            </div>
-
-        </div>
+      
         
         <div class="bar-2">
             <p>Hoy te sugerimos:</p>
@@ -122,22 +119,14 @@
             
         </div>
        
-
-        
-        
         <div id="searchshow" class="bar-2 bar-3">
             <p>Tendencias:</p>
         </div>
 
         <div class="js-container search-gif"></div>
-        <!-- 
-        <img src="/assets/Transpo_G70_TA-518126.jpg" alt="">
-        <img src="/assets/Transpo_G70_TA-518126.jpg" alt="">
-        <img src="/assets/Transpo_G70_TA-518126.jpg" alt="">
-        <img src="/assets/Transpo_G70_TA-518126.jpg" alt="">
-        -->
+     
     </div>
     
-    <script src="javascript/main.js"></script>
+    <script defer src="javascript/main.js"></script>
 </body>
 </html>

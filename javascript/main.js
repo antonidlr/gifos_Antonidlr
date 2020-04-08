@@ -110,16 +110,6 @@ const setValue = (val) => {
 
 }
 
-// Function to generate random number  
-/*
-function randomNumber(min, max) {
-    let step1 = max - min + 1;
-    let step2 = Math.random()*step1;
-    let result = Math.floor(step2) + 1;
-    return result;
-} */
-
-
 // Cargar Trending cuando se actualice el website
 
 window.addEventListener('load', (event) => {
@@ -191,3 +181,22 @@ document.querySelector(".butt-4").addEventListener('click', function(){
     searchGiphy(url, bVal2);
     moveScreen();
 });
+
+
+
+const ddown = () => {
+
+    const dropDown = document.getElementById('themes');
+    console.log(dropDown);
+    dropDown.style.display = "inline-block";
+
+    dropDown.addEventListener('mouseout', function(){
+
+    });
+};
+
+
+function NewTab() { 
+    window.open( 
+      "https://www.geeksforgeeks.org", "_blank"); 
+} 
