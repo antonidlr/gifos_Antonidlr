@@ -61,9 +61,9 @@ body {
             height: 36px;
             padding: 9px;
             margin-right: 11px;
-            background: #F7C9F3;
-            border: 1px solid #110038;
-            box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+            background: red;
+            border: 1px solid var(--border);
+            box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
             
         }
         
