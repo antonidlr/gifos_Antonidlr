@@ -24,7 +24,7 @@ function getUserInput () {
 
 // Gifs sugeridos
 
-const myArray = ["gorilla", "Los Simpsons", "Unicorns and rainbows", "dog"];
+const myArray = ["Forest Gump", "Simpsons Join Us", "Cat", "Dog"];
 
 // 2. Hacer el trabajo con la API
 
@@ -48,11 +48,6 @@ async function fetchAsync ( url, input) {
 // Busqueda principal 
 
 function searchGiphy( url , input, val) {
-    
-    setTimeout(function(){ 
-        if (val) {
-            moveScreen();
-        } }, 1500); 
     fetchAsync(url,input)
     .then(function(data) {
         const resp = data.data;
@@ -60,6 +55,10 @@ function searchGiphy( url , input, val) {
         //console.log(test);
         dataArray(resp);
     })
+    setTimeout(function(){ 
+        if (val) {
+            moveScreen();
+        } }, 1500);
 }
 
 function searchGiphy2( url , input, num) {

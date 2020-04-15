@@ -1,13 +1,5 @@
 @import 'normalize';
-
-$light: #E6BBE2;
-$dark: #997D97;
-$border: #110038;
-$highlight: #FF6161;
-$downlight: #F7C9F3;
-$white: #FFFFFF;
-
-
+@import 'variables';
 
 * {
     margin: 0;
@@ -15,7 +7,7 @@ $white: #FFFFFF;
 }
 body {
     font-family: 'Chakra Petch', sans-serif;
-    background-color: $light;
+    background-color: var(--light-2);
 }
 
 
@@ -27,106 +19,105 @@ body {
 
 /* Main Header and Buttons */
 
-#main_header {
+
+.main_title {
+    height: 15px;
+    padding: 4px 0 4px 7px;
+    font-size: 12px;
+    color: var(--white);
+    box-shadow: 0 1px 0 0 var(--border);
+    background: var(--bg-header2);
+    background: linear-gradient(90deg, var(--bg-header2) 0%, var(--bg-header) 100%);
     
-    .main_title {
-        height: 15px;
-        padding: 4px 0 4px 7px;
-        font-size: 12px;
-        color: $white;
-        box-shadow: 0 1px 0 0 #110038;
-        background: rgb(65,128,246);
-        background: linear-gradient(90deg, rgba(65,128,246,1) 0%, rgba(247,201,243,1) 100%);
+}
+
+#main_navigation {
+    margin: 35px 140.5px 0px 91px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-homepage {
+    
+    width: 102.6px;
+    height: 64px;
+    margin-right: 685.4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.rectangle-1 {
+    width: 144px;
+    height: 36px;
+    padding: 9px;
+    margin-right: 11px;
+    background: red;
+    border: 1px solid var(--border);
+    box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
+    
+}
+
+
+.rectangle-2 {
+    width: 131px;
+    height: 36px;
+    padding: 9px;
+    margin-right: -5px;
+    background: var(--bg-header);
+    border: 1px solid var(--border);
+    box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
+}
+
+.rectangle-3 {
+    img {
+        position: relative;
+        top:-2px;
+    }
+    width: 36px;
+    height: 36px;
+    padding: 9px;
+    margin-right: -5px;
+    background: var(--bg-header);
+    border: 1px solid var(--border);
+    box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
+}
+
+.rectangle-4{
+    margin-left: 16.5px;
+    text-decoration: none;
+    span {
         
+        border-bottom: 1px solid var(--border);
+    }
+    color: var(--border);
+}
+
+.line-dotted:hover {
+    outline: 1px dotted var(--border);
+    outline-offset: -4px;
+}
+.line-dotted:active {
+    outline: 1px dotted var(--border);
+    outline-offset: -4px;
+}
+
+.rectangle-4:hover {
+    padding: 5px 12px 5px 0px;
+    border:1px dotted var(--border);
+}
+
+.rectangle-4:active {
+    color: var(--bg-search2);
+    border: none;
+    span {
+        
+        border-color: var(--bg-search2);
     }
     
-    #main_navigation {
-        margin: 35px 140.5px 0px 91px;
-        display: flex;
-        align-items: center;
-        
-        .logo-homepage {
-            
-            width: 102.6px;
-            height: 64px;
-            margin-right: 685.4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        }
-        
-        .rectangle-1 {
-            width: 144px;
-            height: 36px;
-            padding: 9px;
-            margin-right: 11px;
-            background: red;
-            border: 1px solid var(--border);
-            box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
-            
-        }
-        
-        
-        .rectangle-2 {
-            width: 131px;
-            height: 36px;
-            padding: 9px;
-            margin-right: -5px;
-            background: #F7C9F3;
-            border: 1px solid #110038;
-            box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-        }
-        
-        .rectangle-3 {
-            img {
-                position: relative;
-                top:-2px;
-            }
-            width: 36px;
-            height: 36px;
-            padding: 9px;
-            margin-right: -5px;
-            background: #F7C9F3;
-            border: 1px solid #110038;
-            box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-        }
-        
-        .rectangle-4{
-            margin-left: 16.5px;
-            text-decoration: none;
-            span {
-                
-                border-bottom: 1px solid #110038;
-            }
-            color: $border;
-        }
-        
-        .line-dotted:hover {
-            outline: 1px dotted $border;
-            outline-offset: -4px;
-        }
-        .line-dotted:active {
-            outline: 1px dotted $border;
-            outline-offset: -4px;
-        }
-        
-        .rectangle-4:hover {
-            padding: 5px 12px 5px 0px;
-            border:1px dotted $border;
-        }
-        
-        .rectangle-4:active {
-            color: #B4B4B4;
-            border: none;
-            span {
-                
-                border-color: #B4B4B4;
-            }
-            
-        }
-    }    
 }
+
 
 /* DROPDOWN MENU THEME 1 and 2*/
 .navbar {
@@ -145,7 +136,7 @@ body {
         list-style-type: none;
         position: absolute;
         font-size: 16px;
-        color: $border;
+        color: var(--border);
         width: 166px;
         height: 102px;
         display: flex;
@@ -153,8 +144,8 @@ body {
         justify-content: center;
         align-items: center;
         z-index: 2;
-        background: #E6E6E6;
-        box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+        background: var(--bg-search6);
+        box-shadow: inset -2px -2px 0 0 var(--bg-search8), inset 2px 2px 0 0 var(--white);
         transition: opacity .15s ease-out;
     }
     
@@ -189,30 +180,30 @@ body {
 /*----------------------------------------------------*/
 
 .rectangle-2:hover + #rect-3 {
-    outline: 1px dotted $border;
+    outline: 1px dotted var(--border);
     outline-offset: -4px;
 }
 .rectangle-2:hover {
-    outline: 1px dotted $border;
+    outline: 1px dotted var(--border);
     outline-offset: -4px;
 }
 
 .rectangle-2:active + #rect-3 {
-    outline: 1px dotted $border;
+    outline: 1px dotted var(--border);
     outline-offset: -4px;
 }
 .rectangle-2:active {
-    outline: 1px dotted $border;
+    outline: 1px dotted var(--border);
     outline-offset: -4px;
 }
 
 .rectangle-3:hover {
-    outline: 1px dotted $border;
+    outline: 1px dotted var(--border);
     outline-offset: -4px;
 }
 
 .rectangle-3:active {
-    outline: 1px dotted $border;
+    outline: 1px dotted var(--border);
     outline-offset: -4px;
 }
 
@@ -237,7 +228,7 @@ body {
                 margin-left: 3px;
             }
         }
-
+        
         .search_bar {
             display: flex;
             align-items: center;
@@ -280,7 +271,7 @@ body {
         font-size: 14px;
         display: flex;
         align-items: center;
-        color: $border;
+        color: var(--border);
         background: #FFFAFE;
         border: 1px solid #E6BBE2;
         box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
@@ -306,11 +297,11 @@ body {
     background: #E6E6E6;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
     font-size: 16px;
-
+    
     position: absolute;
-    color: $border;
+    color: var(--border);
     padding-top: 17px;
-
+    
     transition: opacity .15s ease-out;
 }
 
@@ -320,7 +311,7 @@ body {
 }
 
 .nav-item-2 {
-
+    
     margin-left: 16px;
 }
 
@@ -343,7 +334,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     position: absolute;
-    color: $border;
+    color: var(--border);
     
 }
 
@@ -359,7 +350,7 @@ body {
 }
 
 .b-item:hover {
-    outline: 1px dotted $border;
+    outline: 1px dotted var(--border);
     outline-offset: -4px;
 }
 
