@@ -8,6 +8,7 @@
 body {
     font-family: 'Chakra Petch', sans-serif;
     background-color: var(--light-2);
+    transition: background 500ms ease-in-out, color 1000ms ease-in-out;
 }
 
 
@@ -49,6 +50,7 @@ body {
 }
 
 .rectangle-1 {
+    color: var(--font1);
     width: 144px;
     height: 36px;
     padding: 9px;
@@ -61,6 +63,7 @@ body {
 
 
 .rectangle-2 {
+    color: var(--font1);
     width: 131px;
     height: 36px;
     padding: 9px;
@@ -85,13 +88,13 @@ body {
 }
 
 .rectangle-4{
+    color: var(--font1);
     margin-left: 16.5px;
     text-decoration: none;
     span {
         
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--font1);
     }
-    color: var(--border);
 }
 
 .line-dotted:hover {
@@ -105,7 +108,7 @@ body {
 
 .rectangle-4:hover {
     padding: 5px 12px 5px 0px;
-    border:1px dotted var(--border);
+    border:1px dotted var(--font1);
 }
 
 .rectangle-4:active {
@@ -122,38 +125,40 @@ body {
 /* DROPDOWN MENU THEME 1 and 2*/
 .navbar {
     font-size: 16px;
-    
-    .navbar-nav {
-        list-style-type: none;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        height: 100%;
-    }
-    
-    .dropdown {
-        opacity: 0;
-        list-style-type: none;
-        position: absolute;
-        font-size: 16px;
-        color: var(--border);
-        width: 166px;
-        height: 102px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
-        background: var(--bg-search6);
-        box-shadow: inset -2px -2px 0 0 var(--bg-search8), inset 2px 2px 0 0 var(--white);
-        transition: opacity .15s ease-out;
-    }
-    
-    .has-dropdown:focus-within .dropdown   {
-        opacity: 1;
-        pointer-events: auto;
-    }
-} 
+    color: var(--font1); 
+}
+
+.navbar-nav {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.dropdown {
+    opacity: 0;
+    list-style-type: none;
+    position: absolute;
+    font-size: 16px;
+    color: var(--border);
+    width: 166px;
+    height: 102px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background: var(--bg-search6);
+    box-shadow: inset -2px -2px 0 0 var(--bg-search8), inset 2px 2px 0 0 var(--white);
+    transition: opacity .15s ease-out;
+}
+
+.has-dropdown:focus-within .dropdown   {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 
 .button-1 {
     width: 150px;
@@ -161,19 +166,29 @@ body {
 }
 
 .theme-1 {
+    font-size: 16px;
     margin-bottom: 10px;
-    background: #FFF4FD;
-    border: 1px solid #CCA6C9;
-    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+    text-align: start;
+    text-indent: 16px;
+    background: var(--color2);
+    border: 1px solid var(--cb2);
+    box-shadow: inset -1px -1px 0 0 var(--is2), inset 1px 1px 0 0 var(--white);
     span {
-        border-bottom: 1px solid #110038;
+        border-bottom: 1px solid var(--is4);
     }
 }
 
 .theme-2{
-    background: #F0F0F0;
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    font-size: 16px;
+    color: var(--font1);
+    text-align: start;
+    text-indent: 16px;
+    background: var(--color3);
+    border: 1px solid var(--cb3);
+    box-shadow: inset -1px -1px 0 0 var(--is21), inset 1px 1px 0 0 var(--white);
+    span {
+        border-bottom: 1px solid var(--is5);
+    }
 }
 
 
@@ -215,16 +230,16 @@ body {
     .main_search {
         
         margin-bottom: 64px;
-        background: #E6E6E6;
-        box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+        background: var(--bg-search);
+        box-shadow: inset -2px -2px 0 0 var(--bg-search2), inset 2px 2px 0 0 var(--white);
         padding: 2px;
         .search_title {
             padding: 3px;
-            background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+            background-image: linear-gradient(270deg, var(--bg-header) 0%, var(--bg-header2) 100%);
             p {
                 font-size: 14px;
                 font-weight: bold;
-                color: #FFFFFF;
+                color: var(--white);
                 margin-left: 3px;
             }
         }
@@ -240,7 +255,7 @@ body {
             margin: 12px 5px 12px 12px;
             display: inline-block;
             padding-left: 16px;
-            background: #FFFFFF;
+            background: var(--white);
             border: 1px solid #979797;
             box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
             outline: none;
@@ -250,10 +265,10 @@ body {
             width: 102px;
             height: 36px;
             font-size: 16px;
-            color: #B4B4B4;
-            background: #E6E6E6;
-            border: 1px solid #808080;
-            box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+            color: var(--se1);
+            background: var(--bg-search6);
+            border: 1px solid var(--bg-search7);
+            box-shadow: inset -1px -1px 0 0 var(--bg-search8), inset 1px 1px 0 0 var(--white);
             img {
                 position: relative;
                 top: 3px;
@@ -272,9 +287,9 @@ body {
         display: flex;
         align-items: center;
         color: var(--border);
-        background: #FFFAFE;
-        border: 1px solid #E6BBE2;
-        box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+        background: var(--color);
+        border: 1px solid var(--cb);
+        box-shadow: inset -2px -2px 0 0 var(--is), inset 2px 2px 0 0 var(--is7);
         p {
             text-transform: capitalize;
         }
@@ -294,8 +309,8 @@ body {
     opacity: 0;
     list-style-type: none;
     z-index: 2;
-    background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    background: var(--bg-search6);
+    box-shadow: inset -2px -2px 0 0 var(--se1), inset 2px 2px 0 0 var(--white);
     font-size: 16px;
     
     position: absolute;
@@ -344,9 +359,9 @@ body {
     height: 36px;
     text-align: start;
     padding-left: 16px;
-    background: #F0F0F0;
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    background: var(--se3);
+    border: 1px solid var(--bg-search7);
+    box-shadow: inset -1px -1px 0 var(--bg-search8), inset 1px 1px 0 0 var(--white);
 }
 
 .b-item:hover {
@@ -368,8 +383,8 @@ body {
     height: 313px;
     display: flex;
     justify-content: center;
-    background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    background: var(--gif1);
+    box-shadow: inset -2px -2px 0 0 var(--gif2), inset 2px 2px 0 0 var(--white);
 }
 
 .title-gif {
@@ -380,12 +395,13 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-top: 3px;
-    background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+    margin-bottom: 3px;
+    background-image: linear-gradient(270deg, var(--bg-header) 0%, var(--bg-header2) 100%);
     p {
         
         font-size: 14px;
         font-weight: bold;
-        color: #FFFFFF;
+        color: var(--white);
         margin-left: 3px;
     }
 }
@@ -395,9 +411,9 @@ body {
     width: 16px;
     height: 14px;
     margin-right: 3px;
-    background: #E6E6E6;
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    // background: #E6E6E6;
+    // border: 1px solid #808080;
+    // box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 var(--white);
     img {
         position: relative;
     }
@@ -434,14 +450,14 @@ body {
     width: 81px;
     height: 34px;
     font-size: 14px;
-    color: #FFFFFF;
+    color: var(--white);
     text-align: center;
     position: relative;
     left: 7px;
     top: -49px;
-    background: #4180F6;
-    border: 1px solid #4C2F99;
-    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+    background: var(--gif3);
+    border: 1px solid var(--gif4);
+    box-shadow: inset -2px -2px 0 0 var(--gif5), inset 2px 2px 0 0 var(--white);
     
 }
 

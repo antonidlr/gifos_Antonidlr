@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/scss/application.css">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="theme_night">
+<body class="theme_day">
     <header id="main_header" class="clearfix">
         <div class="main_title">
             <p>¡Bienvenidos/as a Guifos.com! ------Donde los gifs están.//////Número de visitas: 12.765.803</p>
@@ -16,7 +16,7 @@
         <div id="main_navigation" class="clearfix">
             
             <div class="logo-homepage">
-                <a href="#" class="logo"> <img src="/assets/gifOF_logo.png" alt="guifos"> </a>
+                <a href="#" class="logo"> <img id="logo" src="/assets/gifOF_logo.png" alt="guifos"> </a>
             </div>
             
             <nav class="navbar">
@@ -27,7 +27,7 @@
                         <button id="rect-3" class="rectangle-3"><img src="/assets/dropdown.svg" alt="" height="6px" width="10px"> </button>
                         <ul class="dropdown">
                             <li class="nav-item"><button class="button-1 theme-1"><span>S</span>ailor Day</button></li>
-                            <li class="nav-item"><button class="button-1 theme-2">Sailor Night</button></li>
+                            <li class="nav-item"><button class="button-1 theme-2"><span>S</span>ailor Night</button></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a href="#" class="rectangle-4"><span>M</span>is Guifos</a></li>
@@ -53,7 +53,7 @@
                             <li class="nav-item-2"><button class="b-item">Y otro más</button></li>
                         </ul>
                     </li>
-                    <li><button class="button_search"> <img src="/assets/lupa_inactive.svg" alt="" width="16px" height="16px">   Buscar</button></li>
+                    <li><button class="button_search"> <img id="search_logo" src="/assets/lupa_inactive.svg" alt="" width="16px" height="16px">   Buscar</button></li>
                 </ul>
             </div>
             
@@ -128,5 +128,6 @@
     </div>
     
     <script defer src="javascript/main.js"></script>
+    <script defer src="javascript/theme.js"></script>
 </body>
 </html>
