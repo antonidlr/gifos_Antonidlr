@@ -62,6 +62,7 @@ document.getElementById('startcamera').onclick = async () => {
             videoRecorder.stopRecording(stopRec2);
             document.getElementById('capturar').style.display = 'none';
             document.getElementById('preview-video').style.display = 'block';
+            
         });
 
     });
@@ -87,9 +88,12 @@ const stopRec2 = (stream) => {
     videoRecorder = null;
 };
 
-const stopRec = (stream) => {
+const stopRec = async (stream) => {
 
     image.src = URL.createObjectURL(gifRecorder.getBlob());
+    
+    await sendGif(gifRecorder.getBlob());
+
     gifRecorder.destroy();
     gifRecorder = null;
     
@@ -105,6 +109,7 @@ const uploadGuifo = document.getElementById('upload-gif');
 uploadGuifo.onclick = () => {
     document.getElementById('preview-video').style.display = 'none';
     document.getElementById('addGifo').style.display = 'block';
+    console.log(image.src);
 };
 
 const cancelGuifo = document.getElementById('cancel-upload');
@@ -113,10 +118,33 @@ cancelGuifo.onclick = () => {
     window.location.href = '../html/crear_gifos.html';
 }
 
+
+
 //5. Play Gifo Video
 
 
 //6. POST to Giphy
+
+const sendGif = async gif => {
+    //let response = null;
+    const data = new FormData();
+    data.append('file', gif, 'mygifo.gif');
+    
+    // try {
+         let response = await fetch('https://upload.giphy.com/v1/gifs/?api_key=KdUn87AF0ZlimGbYnmrFRu2QQ8vTxfrZ&username=tonydlr', {
+         method: 'POST',
+         mode: 'no-cors',
+         body: data
+         });
+    // } catch {
+    //     return response.status;
+    // };
+     
+    // return response.status;
+
+    console.log(response);
+    console.log(response.status);
+};
 
 
 //7. Container botones
