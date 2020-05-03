@@ -93,7 +93,7 @@ const stopRec = async (stream) => {
     image.src = URL.createObjectURL(gifRecorder.getBlob());
     
     await sendGif(gifRecorder.getBlob());
-
+    localStorage.setItem("gifo", image.src);
     gifRecorder.destroy();
     gifRecorder = null;
     
@@ -131,11 +131,12 @@ const sendGif = async gif => {
     data.append('file', gif, 'mygifo.gif');
     
     // try {
-         let response = await fetch('https://upload.giphy.com/v1/gifs/?api_key=KdUn87AF0ZlimGbYnmrFRu2QQ8vTxfrZ&username=tonydlr', {
+         let response = await fetch("https://upload.giphy.com/v1/gifs?api_key=KdUn87AF0ZlimGbYnmrFRu2QQ8vTxfrZ", {
          method: 'POST',
-         mode: 'no-cors',
          body: data
          });
+    const newGif = response.url;
+    console.log (newGif);
     // } catch {
     //     return response.status;
     // };
