@@ -1,4 +1,4 @@
-const videoWidget= document.getElementById('record');
+const videoWidget = document.getElementById('record');
 const imgPreview = document.getElementById('preview');
 const videoRecording = document.getElementById('startrecording');
 //const stopRecordingVideo = document.getElementById('stoprecord');
@@ -56,24 +56,26 @@ document.getElementById('startcamera').onclick = async () => {
         const stopRecordingVideo = document.getElementById('stoprecord');
         gifRecorder.startRecording();
         videoRecorder.startRecording();
-        stopRecordingVideo.addEventListener('click', () =>{
+        stopRecordingVideo.addEventListener('click', () => { 
     
             gifRecorder.stopRecording(stopRec);  
             videoRecorder.stopRecording(stopRec2);
             document.getElementById('capturar').style.display = 'none';
             document.getElementById('preview-video').style.display = 'block';
+            videoStream.getVideoTracks()[0].stop();
+            videoWidget.srcObject = null;
             
         });
-
-    });
-
-    document.getElementById('cancel').onclick = () => {
         
-        videoStream.getVideoTracks()[0].stop();
-        videoWidget.srcObject = null;
-    };
-    
+    });    
 };
+
+document.getElementById('cancel').addEventListener('click', () => {
+    
+    console.log("hola");
+    window.location.href = '../html/index.html';
+    
+});
 
 document.getElementById('forw').onclick = () => {
         
@@ -93,7 +95,6 @@ const stopRec = async (stream) => {
     image.src = URL.createObjectURL(gifRecorder.getBlob());
     
     await sendGif(gifRecorder.getBlob());
-    localStorage.setItem("gifo", image.src);
     gifRecorder.destroy();
     gifRecorder = null;
     
@@ -110,6 +111,8 @@ uploadGuifo.onclick = () => {
     document.getElementById('preview-video').style.display = 'none';
     document.getElementById('addGifo').style.display = 'block';
     console.log(image.src);
+    setTimeout(function(){ 
+        window.location.href = '../html/crear_gifos.html';}, 5000);
 };
 
 const cancelGuifo = document.getElementById('cancel-upload');
@@ -142,10 +145,40 @@ const sendGif = async gif => {
     // };
      
     // return response.status;
+    const dataResponse = await response.json();
 
+    console.log(dataResponse);
+    console.log(dataResponse.data.id);
     console.log(response);
     console.log(response.status);
+
+    if (response.status === 200) {
+        //guardar en local storage
+        //saveLocal(dataResponse.data.id);
+        localStorage.setItem("misgifos", saveLocal(dataResponse.data.id));
+    }
+    else {
+        alert ('No se ha podido cargar tu gif. Vuelve a intentarlo');
+    }
+
 };
+
+
+// 6.1 Guardar en Local Storage
+
+const saveLocal = (gif) => {
+    const img = document.createElement('img');
+    img.setAttribute("width", "288px");
+    img.setAttribute("height", "298px");
+    img.src = `https://media.giphy.com/media/${gif}/giphy.gif`;
+    const box = document.getElementById('mis-guifos');
+    //box.appendChild(img);
+    box.insertBefore(img,box.firstChild);
+    return box.innerHTML;
+}
+
+const myGifoContainer = document.getElementById('mis-guifos');
+myGifoContainer.innerHTML = localStorage.getItem("misgifos");
 
 
 //7. Container botones

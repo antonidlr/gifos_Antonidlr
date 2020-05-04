@@ -664,3 +664,13 @@ body {
     height: 434px;
 }
 
+.search-gif2 {
+    max-width: 1200px;
+    display: flex;
+    align-items: flex-start;
+    //justify-content: space-around;
+    flex-wrap: wrap;
+    img {
+        margin: 5px;
+    }
+}
