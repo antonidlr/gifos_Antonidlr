@@ -71,7 +71,7 @@ document.getElementById('startcamera').onclick = async () => {
 };
 
 document.getElementById('cancel').addEventListener('click', () => {
-    
+
     console.log("hola");
     window.location.href = '../html/index.html';
     
@@ -111,6 +111,10 @@ uploadGuifo.onclick = () => {
     document.getElementById('preview-video').style.display = 'none';
     document.getElementById('addGifo').style.display = 'block';
     console.log(image.src);
+
+
+
+    
     setTimeout(function(){ 
         window.location.href = '../html/crear_gifos.html';}, 5000);
 };
