@@ -138,13 +138,13 @@ body {
 
 .dropdown {
     opacity: 0;
+    display: none;
     list-style-type: none;
     position: absolute;
     font-size: 16px;
     color: var(--border);
     width: 166px;
     height: 102px;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -156,6 +156,7 @@ body {
 
 .has-dropdown:focus-within .dropdown   {
     opacity: 1;
+    display: flex;
     pointer-events: auto;
 }
 
@@ -307,6 +308,7 @@ body {
     width: 1200px;
     height: 143px;
     opacity: 0;
+    display: none;
     list-style-type: none;
     z-index: 2;
     background: var(--bg-search6);
@@ -322,6 +324,7 @@ body {
 
 .has-dropdown-search:focus-within .dropdown-search  {
     opacity: 1;
+    display: block;
     pointer-events: auto;
 }
 
@@ -483,15 +486,17 @@ body {
 .createcontent {
     margin-top: 30px;
     margin-left: 15px;
-    margin-bottom: 28px;
+    margin-bottom: 20px;
     display: flex;
-    justify-content: space-around;
+    
     align-items: flex-start;
     img {
         margin-right: 16px;
+        margin-left: 10px;
     }
     li {
         list-style: none;
+        margin-bottom: 8px;
     }
     h2 {
         font-size: 16px;
@@ -500,6 +505,18 @@ body {
     p , li {
         font-size: 14px;
     }
+    span {
+        font-weight: bold;
+        
+    }
+    .gif-2 {
+        font-style: oblique;
+    }
+}
+
+.cont-1 {
+    letter-spacing: 0;
+    line-height: 20px;
 }
 
 .createbutton {
@@ -673,4 +690,17 @@ body {
     img {
         margin: 5px;
     }
+}
+
+
+.hover-rec {
+    background: #FF6161;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.hover-rec:hover {
+    outline: 1px dotted var(--border);
+    outline-offset: -4px;
+    cursor: pointer;
 }

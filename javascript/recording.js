@@ -32,7 +32,7 @@ document.getElementById('startcamera').onclick = async () => {
 
     gifRecorder = RecordRTC(videoStream, {
         type: 'gif',
-        frameRate: 1,
+        frameRate: 4,
         quality: 10,
         width: 838,
         height: 434,
@@ -54,9 +54,11 @@ document.getElementById('startcamera').onclick = async () => {
     videoRecording.addEventListener('click', () => {
         addStop();
         const stopRecordingVideo = document.getElementById('stoprecord');
+        const stopRecordingVideoS = document.getElementById('stoprecord2');
         gifRecorder.startRecording();
         videoRecorder.startRecording();
-        stopRecordingVideo.addEventListener('click', () => { 
+        
+        function stopRecVideo() { 
     
             gifRecorder.stopRecording(stopRec);  
             videoRecorder.stopRecording(stopRec2);
@@ -65,6 +67,14 @@ document.getElementById('startcamera').onclick = async () => {
             videoStream.getVideoTracks()[0].stop();
             videoWidget.srcObject = null;
             
+        }
+
+        stopRecordingVideo.addEventListener('click', () => {
+            stopRecVideo();
+        } );
+
+        stopRecordingVideoS.addEventListener('click', () => {
+            stopRecVideo();
         });
         
     });    
@@ -114,7 +124,7 @@ uploadGuifo.onclick = () => {
 
 
 
-    
+
     setTimeout(function(){ 
         window.location.href = '../html/crear_gifos.html';}, 5000);
 };
@@ -204,9 +214,11 @@ const addStop = () => {
 
     div.className = 'createbutton2';
     input.className = 'recording2';
-    firstBtn.classList.add("rectangle-1","bcancel2");
+    firstBtn.classList.add("rectangle-1","bcancel2", "hover-rec");
     secondBtn.className = ('rectangle-1');
+    secondBtn.classList.add("hover-rec");
     secondBtn.setAttribute("id","stoprecord");
+    firstBtn.setAttribute("id","stoprecord2");
     secondBtn.textContent = ("Listo");
     img.className = 'recording';
     img.src = "/assets/recording_dark.svg";

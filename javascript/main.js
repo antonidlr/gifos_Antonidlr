@@ -24,7 +24,7 @@ function getUserInput () {
 
 // Gifs sugeridos
 
-const myArray = ["Forest Gump", "Simpsons Join Us", "Cat", "Dog"];
+const myArray = ["Forest Gump", "Simpsons Join Us", "Starwars", "Dog"];
 
 // 2. Hacer el trabajo con la API
 
@@ -52,7 +52,8 @@ function searchGiphy( url , input, val) {
     .then(function(data) {
         const resp = data.data;
         //const test = resp[0].images.fixed_height.url;
-        //console.log(test);
+        //console.log(resp);
+        //console.log(resp[0].slug);
         dataArray(resp);
     })
     setTimeout(function(){ 
@@ -82,8 +83,60 @@ const dataArray = (resp) => {
     })
 };
 
-//      const test = resp[0].images.fixed_height.url;
-//       console.log(test);
+//5. Suggestions for searching
+
+let buttonS = document.getElementsByClassName('b-item');
+
+const mainInput = document.querySelector(".main_bar");
+
+mainInput.addEventListener('input', updateValueSearch);
+
+function updateValueSearch(e) {
+    if (e.target.value.length >= 3) {
+        
+        fetchAsync(url, e.target.value)
+        .then(function(data) {
+            const resp = data.data;
+            linkSuggestion(resp);
+        })
+
+        
+    }
+}
+
+const linkSuggestion = (resp) => {
+    
+    buttonS[0].innerHTML = resp[0].title;
+    buttonS[1].innerHTML = resp[1].title;
+    buttonS[2].innerHTML = resp[2].title;
+    
+    buttonS[0].addEventListener('click', () => {
+        const userInput = buttonS[0].textContent;
+        const val = true;
+        searchGiphy( url, userInput, val );
+        const inputText = document.querySelector(".bar-3");
+        inputText.innerHTML = "<p>" + userInput + " (resultados)</p>";
+    });
+
+    buttonS[1].addEventListener('click', () => {
+        const userInput = buttonS[1].textContent;
+        const val = true;
+        searchGiphy( url, userInput, val );
+        const inputText = document.querySelector(".bar-3");
+        inputText.innerHTML = "<p>" + userInput + " (resultados)</p>";
+    });
+
+    buttonS[2].addEventListener('click', () => {
+        const userInput = buttonS[2].textContent;
+        const val = true;
+        searchGiphy( url, userInput, val );
+        const inputText = document.querySelector(".bar-3");
+        inputText.innerHTML = "<p>" + userInput + " (resultados)</p>";
+    });
+}
+
+
+
 
 // Muestra los 4 Gif sugeridos
 const trendingArray = (resp,num) => {
@@ -194,8 +247,3 @@ const ddown = () => {
     });
 };
 
-
-function NewTab() { 
-    window.open( 
-      "https://www.geeksforgeeks.org", "_blank"); 
-};
