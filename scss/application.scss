@@ -20,6 +20,9 @@ body {
 
 /* Main Header and Buttons */
 
+button {
+    cursor: pointer;
+}
 
 .main_title {
     height: 15px;
@@ -273,9 +276,35 @@ body {
             img {
                 position: relative;
                 top: 3px;
+                right: 5px;
                 
             }
             outline: none;
+        }
+        //Clase de button busqueda
+
+        .button-2 {
+            width: 102px;
+            height: 36px;
+            font-size: 16px;
+            color: var(--border);
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
+            img {
+                position: relative;
+                top: 3px;
+                right: 5px;
+                
+            }
+        }
+        .button-2:hover {
+            cursor: pointer;
+            outline: 1px dotted var(--border);
+            outline-offset: -4px;
+            background: var(--cb);
+            border: 1px solid var(--border);
+            box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
         }
     }
     
@@ -704,3 +733,4 @@ body {
     outline-offset: -4px;
     cursor: pointer;
 }
+

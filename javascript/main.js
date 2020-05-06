@@ -52,7 +52,7 @@ function searchGiphy( url , input, val) {
     .then(function(data) {
         const resp = data.data;
         //const test = resp[0].images.fixed_height.url;
-        //console.log(resp);
+        console.log(resp);
         //console.log(resp[0].slug);
         dataArray(resp);
     })
@@ -86,29 +86,64 @@ const dataArray = (resp) => {
 //5. Suggestions for searching
 
 let buttonS = document.getElementsByClassName('b-item');
-
+let searchButton = document.querySelector('.button_search');
+let imgButton = document.getElementById('search_logo');
 const mainInput = document.querySelector(".main_bar");
 
 mainInput.addEventListener('input', updateValueSearch);
 
 function updateValueSearch(e) {
-    if (e.target.value.length >= 3) {
+    if (e.target.value.length >= 2) {
         
-        fetchAsync(url, e.target.value)
-        .then(function(data) {
-            const resp = data.data;
-            linkSuggestion(resp);
-        })
+        try {
+            fetchAsync(url, e.target.value)
+            .then(function(data) {
+                const resp = data.data;
+                
+                if(resp !== undefined) {
+                    linkSuggestion(resp);
+                }
+            })
+        } catch(err) {
+           console.log("error" + err);
+        }
+       
+        
+        searchButton.classList.add("button-2");
+        imgButton.src = "/assets/lupa.svg"
+        searchButton.classList.remove("button_search");
+    }
 
-        
+    else {
+        searchButton.classList.add("button_search");
+        searchButton.classList.remove("button-2");
+        imgButton.src = "/assets/lupa_inactive.svg"
     }
 }
 
+const cleanInput = () => {
+    mainInput.value = "";
+}
+
 const linkSuggestion = (resp) => {
+
+    try {
+        if(resp[0].title !== undefined) {
+            buttonS[0].innerHTML = resp[0].title;
+        }
+        if (resp[1].title !== undefined) {
+            buttonS[1].innerHTML = resp[1].title;
+        }
+        if (resp[2].title !== undefined) {
+            buttonS[2].innerHTML = resp[2].title;
+        }
+    }catch (err) {
+        console.log("Hola mi error es: " + err);
+        alert("Tu Busqueda no tiene GIFs relacionados");
+        cleanInput();
+    }
     
-    buttonS[0].innerHTML = resp[0].title;
-    buttonS[1].innerHTML = resp[1].title;
-    buttonS[2].innerHTML = resp[2].title;
+    
     
     buttonS[0].addEventListener('click', () => {
         const userInput = buttonS[0].textContent;
