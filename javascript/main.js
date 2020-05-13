@@ -24,7 +24,7 @@ function getUserInput () {
 
 // Gifs sugeridos
 
-const myArray = ["Forest Gump", "Simpsons Join Us", "Starwars", "Dog"];
+const myArray = ["Forest gump", "Simpsons Join Us", "Starwars", "Dog"];
 
 // 2. Hacer el trabajo con la API
 
@@ -170,7 +170,41 @@ const linkSuggestion = (resp) => {
     });
 }
 
+// 6. Line Around Div Ver Mas on Mouse Over
 
+let divSeeMore = document.getElementsByClassName('js-gif');
+let buttonSeeMore = document.getElementsByClassName('see-more');
+buttonSeeMore[0].addEventListener('mouseover', () => {
+    divSeeMore[0].classList.add("line-around");
+});
+
+buttonSeeMore[0].addEventListener("mouseout", () => {
+    divSeeMore[0].classList.remove("line-around");
+});
+
+buttonSeeMore[1].addEventListener('mouseover', () => {
+    divSeeMore[1].classList.add("line-around");
+});
+
+buttonSeeMore[1].addEventListener("mouseout", () => {
+    divSeeMore[1].classList.remove("line-around");
+});
+
+buttonSeeMore[2].addEventListener('mouseover', () => {
+    divSeeMore[2].classList.add("line-around");
+});
+
+buttonSeeMore[2].addEventListener("mouseout", () => {
+    divSeeMore[2].classList.remove("line-around");
+});
+
+buttonSeeMore[3].addEventListener('mouseover', () => {
+    divSeeMore[3].classList.add("line-around");
+});
+
+buttonSeeMore[3].addEventListener("mouseout", () => {
+    divSeeMore[3].classList.remove("line-around");
+});
 
 
 // Muestra los 4 Gif sugeridos
@@ -205,6 +239,7 @@ window.addEventListener('load', (event) => {
         searchGiphy2(url, valArray, num);
         seeMore(num, valArray);
     }
+   
     searchGiphy(urlTrending, "", false);
 
 });
