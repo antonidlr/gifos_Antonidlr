@@ -29,6 +29,7 @@
   --is2:#E6DCE4;
   --is3:#80687D;
   --is4: var(--border);
+  --cl1: var(--color2);
   --color3: #F0F0F0;
   --cb3:#808080;
   --is21: #B4B4B4;
@@ -70,6 +71,7 @@
   --is2:#B4B4B4;
   --is3:#80687D;
   --is4: #CCCCCC;
+  --cl1: var(--bg-header);
   --color3: var(--cb);
   --cb3:#808080;
   --is21: #B4B4B4;

@@ -24,7 +24,7 @@ function getUserInput () {
 
 // Gifs sugeridos
 
-const myArray = ["Forest gump", "Simpsons Join Us", "Starwars", "Dog"];
+const myArray = ["thinking", "Simpsons Join Us", "Starwars", "Dog"];
 
 // 2. Hacer el trabajo con la API
 
@@ -316,4 +316,16 @@ const ddown = () => {
 
     });
 };
+
+
+//let timer = setInterval(setTime, 1000);
+let seconds = 0;
+
+function setTime() {
+    seconds++;
+    let hour = Math.floor(seconds/3600)
+    let minute = Math.floor((seconds-hour*3600)/60);
+    secondsDigit = seconds - (hour*3600 + minute*60);
+    console.log("00:" + minute + ":" + secondsDigit);
+}
 

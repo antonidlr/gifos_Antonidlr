@@ -21,7 +21,9 @@
             
         </div>
     </header>
-    
+    <a href="#" class="theme-1 link1"></a>
+    <a href="#" class="theme-2 link1"></a>
+
     <div class="wrapper wrapper-2">
         
         <div id="creategif" class=" main_search">
@@ -109,7 +111,7 @@
                     </div>
                     
                     <div class="createbutton3">
-                        <button class="rectangle-1 bcancel">Repetir Captura</button>
+                        <button id ="repeat" class="rectangle-1 bcancel">Repetir Captura</button>
                         <button id="upload-gif" class="rectangle-1">Subir Guifo</button>
                     </div>
                 </div>
@@ -134,6 +136,29 @@
                 </div>
                 
             </div>
+
+            <div id="lastwindow" class="main_search creategif3">
+                <div class="search_title win1">
+                    <p>Guifo Subido Con Éxito</p>
+                    <a href="/html/crear_gifos.html"><img src="/assets/button3.svg" alt="close"></a>
+                </div>
+                <div class="subcontainer">
+                    <div id="vid3">
+                        <img id="gifview" alt="gifpreview">
+                    </div>
+                    
+                    <div class="cbutton3">
+                        <p>Guifo creado con éxito</p>
+                        <button class="copy">Copiar Enlace Guifo</button>
+                        <button class="copy">Descargar Guifo</button>
+                    </div>
+                    
+                </div>
+                <input type="text" name="" id="gifourl" >
+                <button id="showgifos" class="rectangle-1">Listo</button>
+            </div>
+
+         
             
             <div id= "bar-guifos">
                 <div  class="bar-2">
@@ -146,7 +171,7 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.9/RecordRTC.js"></script>
         <script defer src="/javascript/recording.js"></script>
-        <!-- <script defer src="/javascript/theme.js"></script> -->
+        <script defer src="/javascript/theme.js"></script>
         
 
     </body>

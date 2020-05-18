@@ -18,10 +18,6 @@ body {
     display: table;
 }
 
-#main-wrapper {
-    
-}
-
 /* Main Header and Buttons */
 
 button {
@@ -511,7 +507,7 @@ button {
 }
 
 .line-around {
-    outline: 1px dotted var(--border);
+    outline: 1.5px dotted var(--border);
     outline-offset: -2px;
 }
 
@@ -575,7 +571,8 @@ button {
 }
 
 .bcancel {
-    background: var(--color2);
+    background: var(--cl1);
+    //background: var(--bg-header);
 }
 
 .vid1 {
@@ -624,6 +621,7 @@ button {
 }
 
 .recording2 {
+    text-align: center;
     width: 124px;
     height: 36px;
     margin-left: 11px;
@@ -760,3 +758,57 @@ button {
     background: #E6E6E6;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
+
+.link1 {
+    display: none;
+}
+
+#vid3 {
+    width: 371px;
+    height: 196px;
+    margin: 27px 0px 24px 24px;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+.creategif3 {
+    width: 721px;
+    height: 391px;
+    margin-bottom: 153px;
+}
+
+.subcontainer {
+    display: flex;
+}
+
+.cbutton3 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 49px;
+    margin-left: 24px; 
+    p {
+        margin-bottom: 2px;
+        font-size: 16px;
+        color: var(--border);
+        font-weight: bold;
+    }
+    .copy {
+        margin-top: 14px;
+        width: 256px;
+        height: 36px;
+        background: var(--cl1);
+        border: 1px solid var(--border);
+        box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
+    }
+}
+
+#showgifos {
+    margin-top: 36px;
+    margin-left: 531px;
+}
+
+#gifourl {
+    display: none;
+}
+    
