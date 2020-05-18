@@ -9,7 +9,7 @@ let gifRecorder = null;
 let image = document.getElementById('preview');
 let video = document.getElementById('record2');
 const repeatVideo = document.getElementById('repeat');
-
+let contentDiv; // Container Dynamic Buttons
 
 // 1. Start camera Video
 
@@ -33,7 +33,7 @@ document.getElementById('startcamera').onclick = async () => {
     
     gifRecorder = RecordRTC(videoStream, {
         type: 'gif',
-        frameRate: 1,
+        frameRate: 5,
         quality: 5,
         width: 360,
         hidden: 240,
@@ -54,7 +54,11 @@ document.getElementById('startcamera').onclick = async () => {
     
     videoRecording.addEventListener('click', () => {
         
+        const content = document.querySelector('.createbutton2');
+        contentDiv = content;
+        
         addStop();
+        
         const stopRecordingVideo = document.getElementById('stoprecord');
         const stopRecordingVideoS = document.getElementById('stoprecord2');
         gifRecorder.startRecording();
@@ -73,9 +77,9 @@ document.getElementById('startcamera').onclick = async () => {
 
         
             setTimeout(function(){ 
-                if(videoRecorder != null) {
-                stopRecVideo();
-                }
+                 if(videoRecorder != null) {
+                 stopRecVideo();
+                 }
             }, 6000);
 
        
@@ -130,7 +134,7 @@ const stopRec = async (stream) => {
 
 const uploadGuifo = document.getElementById('upload-gif');
 const cancelGuifo = document.getElementById('cancel-upload');
-
+let newUrlGifo = "HEllo a Todos";
 
 uploadGuifo.addEventListener('click', () => {
     
@@ -139,7 +143,11 @@ uploadGuifo.addEventListener('click', () => {
     console.log(image.src);
 
     setTimeout(function(){ 
-        window.location.href = '../html/crear_gifos.html';}, 40000);
+        imgGifoReady.src = `${newUrlGifo}`;
+        document.getElementById('addGifo').style.display = 'none';
+        document.getElementById('lastwindow').style.display = 'block';
+        document.getElementById('bar-guifos').style.display = 'block';
+    }, 25000);
     
     
 });
@@ -149,9 +157,55 @@ cancelGuifo.onclick = () => {
     window.location.href = '../html/crear_gifos.html';
 }
 
-const uploadStatus = (status) => {
-    return status;
+// 4.2 Last Section Gifo Copy
+
+const lastGifoSection = document.getElementById('lastwindow');
+const buttonGifoSection = document.getElementsByClassName('copy');
+const textUrlGifo = document.getElementById('gifourl');
+const startGifoSection = document.getElementById('showgifos');
+const imgGifoReady = document.getElementById('gifview');
+textUrlGifo.value = newUrlGifo;
+console.log(textUrlGifo.value);
+
+//4.2.1 Copy GIFO link 
+
+const copyGifo = () => {
+    // textUrlGifo.select();
+    // textUrlGifo.setSelectionRange(0, 99999)
+    // document.execCommand("copy");
+    //alert("Link de GIFo copiado: " + newUrlGifo);
+    
 };
+
+buttonGifoSection[0].addEventListener('click', async event => {
+
+    if (!navigator.clipboard) {
+        // Clipboard API not available
+        return
+      }
+      
+      try {
+        await navigator.clipboard.writeText(newUrlGifo);
+        alert("Link de GIFo copiado: " + newUrlGifo);
+      } catch (err) {
+        console.error('Failed to copy!', err)
+      }
+});
+
+
+//4.2.2 Download New Gifo
+
+buttonGifoSection[1].addEventListener('click', () =>{
+    window.open(`${newUrlGifo}`);
+});
+
+startGifoSection.addEventListener('click', () => {
+    // document.getElementById('creategif').style.display = 'block';
+    // document.getElementById('lastwindow').style.display = 'none';
+    // clearContainer('.container');
+    // document.querySelector('.container').appendChild(contentDiv);
+    window.location.href = '../html/crear_gifos.html';
+});
 
 
 
@@ -166,7 +220,7 @@ const sendGif = async gif => {
     const data = new FormData();
     data.append('file', gif, 'mygifo.gif');
     
-    let response = await fetch("https://upload.giphy.com/v1/gifs?api_key=KdUn87AF0ZlimGbYnmrFRu2QQ8vTxfrZ", {
+    let response = await fetch("https://upload.giphy.com/v1/gifs?api_key=E8tQ2I3AwBANKnR29Xh48X3QDStottuJ", {
     method: 'POST',
     body: data
     });
@@ -201,6 +255,7 @@ const saveLocal = (gif) => {
     const box = document.getElementById('mis-guifos');
     //box.appendChild(img);
     box.insertBefore(img,box.firstChild);
+    newUrlGifo = img.src;
     return box.innerHTML;
 }
 
@@ -214,6 +269,7 @@ const clearContainer = (e) => {
     const content = document.querySelector(e);
     content.innerHTML = "";
 };
+
 
 const addStop = () => {
     clearContainer('.container');

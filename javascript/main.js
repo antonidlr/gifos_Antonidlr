@@ -28,7 +28,7 @@ const myArray = ["thinking", "Simpsons Join Us", "Starwars", "Dog"];
 
 // 2. Hacer el trabajo con la API
 
-const apiKey = 'KdUn87AF0ZlimGbYnmrFRu2QQ8vTxfrZ';
+const apiKey = 'E8tQ2I3AwBANKnR29Xh48X3QDStottuJ';
 const urlApi = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=`
 const urlTrending = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=25&rating=G`
 const url = urlApi;

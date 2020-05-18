@@ -763,6 +763,12 @@ button {
     display: none;
 }
 
+//Last Section GIFO COPY
+
+#lastwindow {
+    display: none;
+}
+
 #vid3 {
     width: 371px;
     height: 196px;
@@ -770,6 +776,8 @@ button {
     background: #FFFFFF;
     border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+    display: flex;
+    justify-content: center;
 }
 
 .creategif3 {
@@ -811,4 +819,6 @@ button {
 #gifourl {
     display: none;
 }
+
+
     
