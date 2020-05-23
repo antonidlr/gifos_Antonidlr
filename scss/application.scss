@@ -233,7 +233,7 @@ button {
     
     .main_search {
         
-        margin-bottom: 64px;
+        //margin-bottom: 64px;
         background: var(--bg-search);
         box-shadow: inset -2px -2px 0 0 var(--bg-search2), inset 2px 2px 0 0 var(--white);
         padding: 2px;
@@ -306,6 +306,7 @@ button {
             border: 1px solid var(--border);
             box-shadow: inset -1px -1px 0 0 var(--bg-header4), inset 1px 1px 0 0 var(--white);
         }
+        
     }
     
     .bar-2 {
@@ -820,5 +821,21 @@ button {
     display: none;
 }
 
+// Button Container and Hashtags
 
+.hashtag-container {
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 54px;
+    
+}
+
+.taggifo {
+    padding: 8px 12px 8px 7px;
+    margin-right: 8px;
+    color: var(--white);
+    background: #4180F6;
+    border: 1px solid #4C2F99;
+    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+}
     

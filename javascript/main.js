@@ -3,7 +3,8 @@
 document.querySelector(".button_search").addEventListener('click',function(){
     const userInput = getUserInput();
     const val = true;
-    searchGiphy( url, userInput, val );
+    const val2 = true;
+    searchGiphy( url, userInput, val, val2);
     searchBar();
 });
 
@@ -12,7 +13,8 @@ document.querySelector(".main_bar").addEventListener('keyup',function(e){
     if(e.which === 13) {
         const userInput = getUserInput();
         const val = true;
-        searchGiphy( url, userInput, val );
+        const val2 = true;
+        searchGiphy( url, userInput, val, val2);
         searchBar();
     }
 });
@@ -47,14 +49,16 @@ async function fetchAsync ( url, input) {
 
 // Busqueda principal 
 
-function searchGiphy( url , input, val) {
+function searchGiphy( url , input, val, val2) {
     fetchAsync(url,input)
     .then(function(data) {
         const resp = data.data;
-        //const test = resp[0].images.fixed_height.url;
-        console.log(resp);
-        //console.log(resp[0].slug);
+        
         dataArray(resp);
+
+        if(val2){
+            chashtag(resp);
+        }
     })
     setTimeout(function(){ 
         if (val) {
@@ -81,6 +85,7 @@ const dataArray = (resp) => {
         const imageUrl = data.images.fixed_height.url;
         contDiv.innerHTML += "<img src='"+ imageUrl +"' />";
     })
+
 };
 
 //5. Suggestions for searching
@@ -108,7 +113,6 @@ function updateValueSearch(e) {
            console.log("error" + err);
         }
        
-        
         searchButton.classList.add("button-2");
         imgButton.src = "/assets/lupa.svg"
         searchButton.classList.remove("button_search");
@@ -143,8 +147,6 @@ const linkSuggestion = (resp) => {
         cleanInput();
     }
     
-    
-    
     buttonS[0].addEventListener('click', () => {
         const userInput = buttonS[0].textContent;
         const val = true;
@@ -169,6 +171,89 @@ const linkSuggestion = (resp) => {
         inputText.innerHTML = "<p>" + userInput + " (resultados)</p>";
     });
 }
+
+//5.1 Buttons Suggestions Hashtags
+
+const createButtonHash = (tag) => {
+    const buttonHashtag = document.createElement('button');
+    buttonHashtag.classList.add('taggifo');
+    buttonHashtag.innerHTML = "#" + tag;
+    buttonHashtag.value = tag;
+    const hashtagContainer = document.querySelector('.hashtag-container');
+    hashtagContainer.appendChild(buttonHashtag);
+}
+
+const chashtag = (resp) => {
+    const hashtagContainer = document.querySelector('.hashtag-container');
+    hashtagContainer.innerHTML = " ";
+    for (let num=0; num<8; num++ ) {
+
+        const str = resp[num].slug;
+        const newStr = str.split("-").shift();
+        createButtonHash(newStr);
+       
+    }
+    const buttonArray = document.getElementsByClassName('taggifo');
+
+    buttonArray[0].addEventListener('click', () => {
+        const val = true;
+        searchGiphy( url, buttonArray[0].value, val );
+        searchBar2(buttonArray[0].value);
+        console.log("aca hola: " + buttonArray[0].value);
+    });
+
+    buttonArray[1].addEventListener('click', () => {
+        const val = true;
+        searchGiphy( url, buttonArray[1].value, val );
+        searchBar2(buttonArray[1].value);
+        console.log("aca hola: " + buttonArray[1].value);
+    });
+    
+    buttonArray[2].addEventListener('click', () => {
+        const val = true;
+        searchGiphy( url, buttonArray[2].value, val );
+        searchBar2(buttonArray[2].value);
+        console.log("aca hola: " + buttonArray[2].value);
+    });
+
+    buttonArray[3].addEventListener('click', () => {
+        const val = true;
+        searchGiphy( url, buttonArray[3].value, val );
+        searchBar2(buttonArray[3].value);
+        console.log("aca hola: " + buttonArray[3].value);
+    });
+
+    buttonArray[4].addEventListener('click', () => {
+        const val = true;
+        searchGiphy( url, buttonArray[4].value, val );
+        searchBar2(buttonArray[4].value);
+        console.log("aca hola: " + buttonArray[4].value);
+    });
+    
+    buttonArray[5].addEventListener('click', () => {
+        const val = true;
+        searchGiphy( url, buttonArray[5].value, val );
+        searchBar2(buttonArray[5].value);
+        console.log("aca hola: " + buttonArray[5].value);
+    });
+
+    buttonArray[6].addEventListener('click', () => {
+        const val = true;
+        searchGiphy( url, buttonArray[6].value, val );
+        searchBar2(buttonArray[6].value);
+        console.log("aca hola: " + buttonArray[6].value);
+    });
+
+    buttonArray[7].addEventListener('click', () => {
+        const val = true;
+        searchGiphy( url, buttonArray[7].value, val );
+        searchBar2(buttonArray[7].value);
+        console.log("aca hola: " + buttonArray[7].value);
+    });
+}
+
+
+
 
 // 6. Line Around Div Ver Mas on Mouse Over
 

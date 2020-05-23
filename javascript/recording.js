@@ -169,14 +169,6 @@ console.log(textUrlGifo.value);
 
 //4.2.1 Copy GIFO link 
 
-const copyGifo = () => {
-    // textUrlGifo.select();
-    // textUrlGifo.setSelectionRange(0, 99999)
-    // document.execCommand("copy");
-    //alert("Link de GIFo copiado: " + newUrlGifo);
-    
-};
-
 buttonGifoSection[0].addEventListener('click', async event => {
 
     if (!navigator.clipboard) {
