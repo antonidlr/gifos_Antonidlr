@@ -96,7 +96,7 @@ document.getElementById('startcamera').onclick = async () => {
 
 document.getElementById('cancel').addEventListener('click', () => {
     
-    window.location.href = '../html/index.html';
+    window.location.href = '../index.html';
 });
 
 document.getElementById('forw').onclick = () => {
