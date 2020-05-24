@@ -457,18 +457,19 @@ button {
 
 .search-gif {
     max-width: 1200px;
-    // display: flex;
-    // justify-content: space-around;
-    // align-items: center;
-    // flex-wrap: wrap;
-    // img {
-    //     margin: 5px;
-    // }
+    /*
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    */
+    
     display: grid;
-    height: 100%;
-    grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 10px;
+    grid-auto-rows: 180px;
+    
 }
 
 .search-gif img {
@@ -838,4 +839,71 @@ button {
     border: 1px solid #4C2F99;
     box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
 }
+
+// Gifos Hover Hashtags
+
+.img-box2:hover {
+   
+}
+
+.img-box2 {
+
+}
+
+.box-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    
+}
+
+.img-box {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.box-bar {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    z-index: 1;
+    bottom: 0px;
+    align-content: flex-start;
+    align-items: center;
+    background-image: linear-gradient(270deg, var(--bg-header) 0%, var(--bg-header2) 100%);
+    p {
+        
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--white);
+        margin-left: 3px;
+    }
+}
+
+.img-main {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    outline: 1px dotted var(--border);
+    outline-offset: 0px;
+    overflow: auto;
+    
+}
+
+.box-3 {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    overflow: auto;
+}
+
     

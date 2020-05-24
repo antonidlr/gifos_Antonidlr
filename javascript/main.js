@@ -80,13 +80,347 @@ function searchGiphy2( url , input, num) {
 const dataArray = (resp) => {
     const contDiv = document.querySelector(".js-container");
     contDiv.innerHTML = "";
-
+    let num = 0;
     resp.forEach(function(data){
-        const imageUrl = data.images.fixed_height.url;
-        contDiv.innerHTML += "<img src='"+ imageUrl +"' />";
+        const imageUrl = data.images.original.url;
+        const str = resp[num].slug;
+        const newStr2 =str.split("-");
+        contDiv.appendChild(containerGifo(imageUrl,newStr2[0],newStr2[1]))
+        //contDiv.innerHTML += containerGifo(imageUrl,newStr2[0],newStr2[1]);
+        //"<div class=img-box><div class=img-main><img class=img-box2 src='"+ imageUrl +"' /><div class=box-bar><p>#"+newStr2[0] +" #"+newStr2[1] +"</p></div></div></div>";
+        num++;
     })
+    const div1 = document.querySelectorAll('.box-1');
+    const div2 = document.querySelectorAll('.box-2');
+    const div3 = document.querySelectorAll('.box-3');
+    const img1 = document.querySelectorAll('.img-box2');
 
+    console.log(img1[0]);
+    console.log(div3[0]);
+
+    img1[0].addEventListener('mouseover', () => {
+        div1[0].classList.add('img-box');
+        div3[0].classList.add('img-main');
+        div2[0].style.display = "flex";
+    });
+
+    img1[0].addEventListener('mouseout', () => {
+        div1[0].classList.remove('img-box');
+        div3[0].classList.remove('img-main');
+        div2[0].style.display = "none";
+    });
+
+    img1[1].addEventListener('mouseover', () => {
+        div1[1].classList.add('img-box');
+        div3[1].classList.add('img-main');
+        div2[1].style.display = "flex";
+    });
+
+    img1[1].addEventListener('mouseout', () => {
+        div1[1].classList.remove('img-box');
+        div3[1].classList.remove('img-main');
+        div2[1].style.display = "none";
+    });
+    
+    img1[2].addEventListener('mouseover', () => {
+        div1[2].classList.add('img-box');
+        div3[2].classList.add('img-main');
+        div2[2].style.display = "flex";
+    });
+
+    img1[2].addEventListener('mouseout', () => {
+        div1[2].classList.remove('img-box');
+        div3[2].classList.remove('img-main');
+        div2[2].style.display = "none";
+    });
+
+    img1[3].addEventListener('mouseover', () => {
+        div1[3].classList.add('img-box');
+        div3[3].classList.add('img-main');
+        div2[3].style.display = "flex";
+    });
+
+    img1[3].addEventListener('mouseout', () => {
+        div1[3].classList.remove('img-box');
+        div3[3].classList.remove('img-main');
+        div2[3].style.display = "none";
+    });
+
+    img1[4].addEventListener('mouseover', () => {
+        div1[4].classList.add('img-box');
+        div3[4].classList.add('img-main');
+        div2[4].style.display = "flex";
+    });
+
+    img1[4].addEventListener('mouseout', () => {
+        div1[4].classList.remove('img-box');
+        div3[4].classList.remove('img-main');
+        div2[4].style.display = "none";
+    });
+
+    img1[5].addEventListener('mouseover', () => {
+        div1[5].classList.add('img-box');
+        div3[5].classList.add('img-main');
+        div2[5].style.display = "flex";
+    });
+
+    img1[5].addEventListener('mouseout', () => {
+        div1[5].classList.remove('img-box');
+        div3[5].classList.remove('img-main');
+        div2[5].style.display = "none";
+    });
+
+    img1[6].addEventListener('mouseover', () => {
+        div1[6].classList.add('img-box');
+        div3[6].classList.add('img-main');
+        div2[6].style.display = "flex";
+    });
+
+    img1[6].addEventListener('mouseout', () => {
+        div1[6].classList.remove('img-box');
+        div3[6].classList.remove('img-main');
+        div2[6].style.display = "none";
+    });
+
+    img1[7].addEventListener('mouseover', () => {
+        div1[7].classList.add('img-box');
+        div3[7].classList.add('img-main');
+        div2[7].style.display = "flex";
+    });
+
+    img1[7].addEventListener('mouseout', () => {
+        div1[7].classList.remove('img-box');
+        div3[7].classList.remove('img-main');
+        div2[7].style.display = "none";
+    });
+
+    img1[8].addEventListener('mouseover', () => {
+        div1[8].classList.add('img-box');
+        div3[8].classList.add('img-main');
+        div2[8].style.display = "flex";
+    });
+
+    img1[8].addEventListener('mouseout', () => {
+        div1[8].classList.remove('img-box');
+        div3[8].classList.remove('img-main');
+        div2[8].style.display = "none";
+    });
+
+    img1[9].addEventListener('mouseover', () => {
+        div1[9].classList.add('img-box');
+        div3[9].classList.add('img-main');
+        div2[9].style.display = "flex";
+    });
+
+    img1[9].addEventListener('mouseout', () => {
+        div1[9].classList.remove('img-box');
+        div3[9].classList.remove('img-main');
+        div2[9].style.display = "none";
+    });
+
+    img1[10].addEventListener('mouseover', () => {
+        div1[10].classList.add('img-box');
+        div3[10].classList.add('img-main');
+        div2[10].style.display = "flex";
+    });
+
+    img1[10].addEventListener('mouseout', () => {
+        div1[10].classList.remove('img-box');
+        div3[10].classList.remove('img-main');
+        div2[10].style.display = "none";
+    });
+
+    img1[11].addEventListener('mouseover', () => {
+        div1[11].classList.add('img-box');
+        div3[11].classList.add('img-main');
+        div2[11].style.display = "flex";
+    });
+
+    img1[11].addEventListener('mouseout', () => {
+        div1[11].classList.remove('img-box');
+        div3[11].classList.remove('img-main');
+        div2[11].style.display = "none";
+    });
+
+    img1[12].addEventListener('mouseover', () => {
+        div1[12].classList.add('img-box');
+        div3[12].classList.add('img-main');
+        div2[12].style.display = "flex";
+    });
+
+    img1[12].addEventListener('mouseout', () => {
+        div1[12].classList.remove('img-box');
+        div3[12].classList.remove('img-main');
+        div2[12].style.display = "none";
+    });
+
+    img1[13].addEventListener('mouseover', () => {
+        div1[13].classList.add('img-box');
+        div3[13].classList.add('img-main');
+        div2[13].style.display = "flex";
+    });
+
+    img1[13].addEventListener('mouseout', () => {
+        div1[13].classList.remove('img-box');
+        div3[13].classList.remove('img-main');
+        div2[13].style.display = "none";
+    });
+
+    img1[14].addEventListener('mouseover', () => {
+        div1[14].classList.add('img-box');
+        div3[14].classList.add('img-main');
+        div2[14].style.display = "flex";
+    });
+
+    img1[14].addEventListener('mouseout', () => {
+        div1[14].classList.remove('img-box');
+        div3[14].classList.remove('img-main');
+        div2[14].style.display = "none";
+    });
+
+    img1[15].addEventListener('mouseover', () => {
+        div1[15].classList.add('img-box');
+        div3[15].classList.add('img-main');
+        div2[15].style.display = "flex";
+    });
+
+    img1[15].addEventListener('mouseout', () => {
+        div1[15].classList.remove('img-box');
+        div3[15].classList.remove('img-main');
+        div2[15].style.display = "none";
+    });
+
+    img1[16].addEventListener('mouseover', () => {
+        div1[16].classList.add('img-box');
+        div3[16].classList.add('img-main');
+        div2[16].style.display = "flex";
+    });
+
+    img1[16].addEventListener('mouseout', () => {
+        div1[16].classList.remove('img-box');
+        div3[16].classList.remove('img-main');
+        div2[16].style.display = "none";
+    });
+
+    img1[17].addEventListener('mouseover', () => {
+        div1[17].classList.add('img-box');
+        div3[17].classList.add('img-main');
+        div2[17].style.display = "flex";
+    });
+
+    img1[17].addEventListener('mouseout', () => {
+        div1[17].classList.remove('img-box');
+        div3[17].classList.remove('img-main');
+        div2[17].style.display = "none";
+    });
+
+    img1[18].addEventListener('mouseover', () => {
+        div1[18].classList.add('img-box');
+        div3[18].classList.add('img-main');
+        div2[18].style.display = "flex";
+    });
+
+    img1[18].addEventListener('mouseout', () => {
+        div1[18].classList.remove('img-box');
+        div3[18].classList.remove('img-main');
+        div2[18].style.display = "none";
+    });
+
+    img1[19].addEventListener('mouseover', () => {
+        div1[19].classList.add('img-box');
+        div3[19].classList.add('img-main');
+        div2[19].style.display = "flex";
+    });
+
+    img1[19].addEventListener('mouseout', () => {
+        div1[19].classList.remove('img-box');
+        div3[19].classList.remove('img-main');
+        div2[19].style.display = "none";
+    });
+
+    img1[20].addEventListener('mouseover', () => {
+        div1[20].classList.add('img-box');
+        div3[20].classList.add('img-main');
+        div2[20].style.display = "flex";
+    });
+
+    img1[20].addEventListener('mouseout', () => {
+        div1[20].classList.remove('img-box');
+        div3[20].classList.remove('img-main');
+        div2[20].style.display = "none";
+    });
+
+    img1[21].addEventListener('mouseover', () => {
+        div1[21].classList.add('img-box');
+        div3[21].classList.add('img-main');
+        div2[21].style.display = "flex";
+    });
+
+    img1[21].addEventListener('mouseout', () => {
+        div1[21].classList.remove('img-box');
+        div3[21].classList.remove('img-main');
+        div2[21].style.display = "none";
+    });
+
+    img1[22].addEventListener('mouseover', () => {
+        div1[22].classList.add('img-box');
+        div3[22].classList.add('img-main');
+        div2[22].style.display = "flex";
+    });
+
+    img1[22].addEventListener('mouseout', () => {
+        div1[22].classList.remove('img-box');
+        div3[22].classList.remove('img-main');
+        div2[22].style.display = "none";
+    });
+
+    img1[23].addEventListener('mouseover', () => {
+        div1[23].classList.add('img-box');
+        div3[23].classList.add('img-main');
+        div2[23].style.display = "flex";
+    });
+
+    img1[23].addEventListener('mouseout', () => {
+        div1[23].classList.remove('img-box');
+        div3[23].classList.remove('img-main');
+        div2[23].style.display = "none";
+    });
+
+    img1[24].addEventListener('mouseover', () => {
+        div1[24].classList.add('img-box');
+        div3[24].classList.add('img-main');
+        div2[24].style.display = "flex";
+    });
+
+    img1[24].addEventListener('mouseout', () => {
+        div1[24].classList.remove('img-box');
+        div3[24].classList.remove('img-main');
+        div2[24].style.display = "none";
+    });
 };
+
+// 4.1 Hover Gifs Hastags 
+
+const containerGifo = (img, tag1, tag2) => {
+    const div1 = document.createElement('div');
+    const div2 = document.createElement('div');
+    const div3 = document.createElement('div');
+    const img1 = document.createElement('img');
+    const p1 = document.createElement('p');
+    div1.classList.add('box-1');
+    div2.classList.add('box-3');
+    div3.classList.add('box-2', 'box-bar');
+    img1.classList.add('img-box2');
+    div1.appendChild(div2);
+    div2.appendChild(img1);
+    div2.appendChild(div3);
+    div3.appendChild(p1);
+
+    img1.src = img;
+    p1.innerHTML = "#"+tag1 +" #"+tag2 +"";
+    return div1;
+}
+
 
 //5. Suggestions for searching
 
@@ -189,6 +523,9 @@ const chashtag = (resp) => {
     for (let num=0; num<8; num++ ) {
 
         const str = resp[num].slug;
+        console.log(str);
+        const newStr2 =str.split("-");
+        console.log(newStr2);
         const newStr = str.split("-").shift();
         createButtonHash(newStr);
        
@@ -303,7 +640,6 @@ const trendingArray = (resp,num) => {
 
         const str = resp[0].title;
         const newStr = str.split("GIF").shift();
-        console.log(newStr);
         const newTag = newStr.replace(/\s/g, '');
 
         const tag = document.querySelector(`.tag-${num+1}`);
